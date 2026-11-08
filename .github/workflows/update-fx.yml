@@ -6,6 +6,14 @@ on:
     # Runs Tue-Sat 00:17 UTC (09:17 KST). A commit is made only when new values appear.
     - cron: "17 0 * * 2-6"
   workflow_dispatch: {}
+  # Also run when the collector itself changes (data commits do not match these paths).
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "config/**"
+      - "requirements.txt"
+      - ".github/workflows/update-fx.yml"
 
 permissions:
   contents: write
@@ -44,5 +52,5 @@ jobs:
           else
             last=$(python -c "import json;print(json.load(open('data/metadata.json'))['last_observation'])")
             git commit -m "Update FX data through ${last}"
-            git push
+            git push || (git pull --rebase origin main && git push)
           fi
