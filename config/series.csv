@@ -1,0 +1,26 @@
+series_id,code,country,currency,quote,type,unit
+DEXUSAL,AUD,Australia,Australian dollar,usd_per,rate,U.S. dollars to one Australian dollar
+DEXBZUS,BRL,Brazil,Brazilian real,per_usd,rate,Brazilian reais to one U.S. dollar
+DEXCAUS,CAD,Canada,Canadian dollar,per_usd,rate,Canadian dollars to one U.S. dollar
+DEXCHUS,CNY,China,Chinese yuan renminbi,per_usd,rate,Chinese yuan renminbi to one U.S. dollar
+DEXDNUS,DKK,Denmark,Danish krone,per_usd,rate,Danish kroner to one U.S. dollar
+DEXUSEU,EUR,Euro area,Euro,usd_per,rate,U.S. dollars to one euro
+DEXHKUS,HKD,Hong Kong,Hong Kong dollar,per_usd,rate,Hong Kong dollars to one U.S. dollar
+DEXINUS,INR,India,Indian rupee,per_usd,rate,Indian rupees to one U.S. dollar
+DEXJPUS,JPY,Japan,Japanese yen,per_usd,rate,Japanese yen to one U.S. dollar
+DEXKOUS,KRW,South Korea,South Korean won,per_usd,rate,South Korean won to one U.S. dollar
+DEXMAUS,MYR,Malaysia,Malaysian ringgit,per_usd,rate,Malaysian ringgit to one U.S. dollar
+DEXMXUS,MXN,Mexico,Mexican peso,per_usd,rate,Mexican pesos to one U.S. dollar
+DEXUSNZ,NZD,New Zealand,New Zealand dollar,usd_per,rate,U.S. dollars to one New Zealand dollar
+DEXNOUS,NOK,Norway,Norwegian krone,per_usd,rate,Norwegian kroner to one U.S. dollar
+DEXSIUS,SGD,Singapore,Singapore dollar,per_usd,rate,Singapore dollars to one U.S. dollar
+DEXSFUS,ZAR,South Africa,South African rand,per_usd,rate,South African rand to one U.S. dollar
+DEXSLUS,LKR,Sri Lanka,Sri Lankan rupee,per_usd,rate,Sri Lankan rupees to one U.S. dollar
+DEXSDUS,SEK,Sweden,Swedish krona,per_usd,rate,Swedish kronor to one U.S. dollar
+DEXSZUS,CHF,Switzerland,Swiss franc,per_usd,rate,Swiss francs to one U.S. dollar
+DEXTAUS,TWD,Taiwan,New Taiwan dollar,per_usd,rate,New Taiwan dollars to one U.S. dollar
+DEXTHUS,THB,Thailand,Thai baht,per_usd,rate,Thai baht to one U.S. dollar
+DEXUSUK,GBP,United Kingdom,Pound sterling,usd_per,rate,U.S. dollars to one pound sterling
+DTWEXBGS,USD_BROAD,,Nominal broad U.S. dollar index,,index,Index Jan 2006=100
+DTWEXAFEGS,USD_AFE,,Nominal advanced foreign economies U.S. dollar index,,index,Index Jan 2006=100
+DTWEXEMEGS,USD_EME,,Nominal emerging market economies U.S. dollar index,,index,Index Jan 2006=100

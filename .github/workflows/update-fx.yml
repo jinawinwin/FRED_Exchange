@@ -1,0 +1,48 @@
+name: Update FX data
+
+on:
+  schedule:
+    # FRED publishes the H.10 daily rates weekly (Monday 4:15 p.m. ET, next business day after a holiday).
+    # Runs Tue-Sat 00:17 UTC (09:17 KST). A commit is made only when new values appear.
+    - cron: "17 0 * * 2-6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-fx
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Download and aggregate
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/update_fx.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            last=$(python -c "import json;print(json.load(open('data/metadata.json'))['last_observation'])")
+            git commit -m "Update FX data through ${last}"
+            git push
+          fi
