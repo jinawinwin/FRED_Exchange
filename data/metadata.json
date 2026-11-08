@@ -1,0 +1,183 @@
+{
+  "source": "Board of Governors of the Federal Reserve System (US), H.10 Foreign Exchange Rates, via FRED",
+  "retrieved_with": "fredgraph.csv",
+  "updated_utc": "2026-11-08T22:35:39Z",
+  "last_observation": "2026-10-30",
+  "series": {
+    "DEXUSAL": {
+      "code": "AUD",
+      "unit": "U.S. dollars to one Australian dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13993
+    },
+    "DEXBZUS": {
+      "code": "BRL",
+      "unit": "Brazilian reais to one U.S. dollar",
+      "first": "1995-01-02",
+      "last": "2026-10-30",
+      "observations": 7983
+    },
+    "DEXCAUS": {
+      "code": "CAD",
+      "unit": "Canadian dollars to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 14006
+    },
+    "DEXCHUS": {
+      "code": "CNY",
+      "unit": "Chinese yuan renminbi to one U.S. dollar",
+      "first": "1981-01-02",
+      "last": "2026-10-30",
+      "observations": 11440
+    },
+    "DEXDNUS": {
+      "code": "DKK",
+      "unit": "Danish kroner to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13999
+    },
+    "DEXUSEU": {
+      "code": "EUR",
+      "unit": "U.S. dollars to one euro",
+      "first": "1999-01-04",
+      "last": "2026-10-30",
+      "observations": 6979
+    },
+    "DEXHKUS": {
+      "code": "HKD",
+      "unit": "Hong Kong dollars to one U.S. dollar",
+      "first": "1981-01-02",
+      "last": "2026-10-30",
+      "observations": 11500
+    },
+    "DEXINUS": {
+      "code": "INR",
+      "unit": "Indian rupees to one U.S. dollar",
+      "first": "1973-01-02",
+      "last": "2026-10-30",
+      "observations": 13492
+    },
+    "DEXJPUS": {
+      "code": "JPY",
+      "unit": "Japanese yen to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13994
+    },
+    "DEXKOUS": {
+      "code": "KRW",
+      "unit": "South Korean won to one U.S. dollar",
+      "first": "1981-04-13",
+      "last": "2026-10-30",
+      "observations": 11386
+    },
+    "DEXMAUS": {
+      "code": "MYR",
+      "unit": "Malaysian ringgit to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13978
+    },
+    "DEXMXUS": {
+      "code": "MXN",
+      "unit": "Mexican pesos to one U.S. dollar",
+      "first": "1993-11-08",
+      "last": "2026-10-30",
+      "observations": 8268
+    },
+    "DEXUSNZ": {
+      "code": "NZD",
+      "unit": "U.S. dollars to one New Zealand dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13984
+    },
+    "DEXNOUS": {
+      "code": "NOK",
+      "unit": "Norwegian kroner to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13999
+    },
+    "DEXSIUS": {
+      "code": "SGD",
+      "unit": "Singapore dollars to one U.S. dollar",
+      "first": "1981-01-02",
+      "last": "2026-10-30",
+      "observations": 11499
+    },
+    "DEXSFUS": {
+      "code": "ZAR",
+      "unit": "South African rand to one U.S. dollar",
+      "first": "1980-01-02",
+      "last": "2026-10-30",
+      "observations": 11743
+    },
+    "DEXSLUS": {
+      "code": "LKR",
+      "unit": "Sri Lankan rupees to one U.S. dollar",
+      "first": "1973-01-02",
+      "last": "2026-10-30",
+      "observations": 13140
+    },
+    "DEXSDUS": {
+      "code": "SEK",
+      "unit": "Swedish kronor to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 13999
+    },
+    "DEXSZUS": {
+      "code": "CHF",
+      "unit": "Swiss francs to one U.S. dollar",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 14000
+    },
+    "DEXTAUS": {
+      "code": "TWD",
+      "unit": "New Taiwan dollars to one U.S. dollar",
+      "first": "1983-10-03",
+      "last": "2026-10-30",
+      "observations": 10513
+    },
+    "DEXTHUS": {
+      "code": "THB",
+      "unit": "Thai baht to one U.S. dollar",
+      "first": "1981-01-02",
+      "last": "2026-10-30",
+      "observations": 11419
+    },
+    "DEXUSUK": {
+      "code": "GBP",
+      "unit": "U.S. dollars to one pound sterling",
+      "first": "1971-01-04",
+      "last": "2026-10-30",
+      "observations": 14000
+    },
+    "DTWEXBGS": {
+      "code": "USD_BROAD",
+      "unit": "Index Jan 2006=100",
+      "first": "2006-01-02",
+      "last": "2026-10-30",
+      "observations": 5222
+    },
+    "DTWEXAFEGS": {
+      "code": "USD_AFE",
+      "unit": "Index Jan 2006=100",
+      "first": "2006-01-02",
+      "last": "2026-10-30",
+      "observations": 5222
+    },
+    "DTWEXEMEGS": {
+      "code": "USD_EME",
+      "unit": "Index Jan 2006=100",
+      "first": "2006-01-02",
+      "last": "2026-10-30",
+      "observations": 5222
+    }
+  }
+}
