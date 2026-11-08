@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRED 환율 대시보드</title>
+<meta name="description" content="미 연준 H.10 환율(FRED) 기반 22개 통화와 미 달러지수의 기본 분석 대시보드. 매주 자동 갱신.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232a78d6'/%3E%3Cpath d='M6 21l6-6 5 4 9-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>
+  try { var t = localStorage.getItem("fx-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <p class="eyebrow">FRED · H.10 Foreign Exchange Rates · 매주 자동 갱신</p>
+      <h1>환율 대시보드</h1>
+      <p class="sub">미 달러 기준 22개 통화와 미 달러지수의 기본 분석 · 기준일 <span id="asof">…</span></p>
+    </div>
+    <div class="top-actions">
+      <a class="btn" href="https://github.com/jinawinwin/FRED_Exchange">GitHub 저장소</a>
+      <button class="btn" id="theme-btn" type="button" aria-label="화면 테마 전환">테마</button>
+    </div>
+  </header>
+
+  <main id="app" aria-live="polite">
+    <p class="loading">자료를 불러오는 중입니다…</p>
+  </main>
+
+  <template id="tpl-main">
+    <section class="kpi-row" aria-label="최근 환율">
+      <div class="card hero" id="hero"></div>
+      <div class="tiles" id="tiles"></div>
+    </section>
+
+    <section class="card notes" aria-labelledby="notes-h">
+      <h2 id="notes-h">주요 관찰</h2>
+      <ul id="notes"></ul>
+    </section>
+
+    <h2 class="section-title">장기 개관</h2>
+    <p class="section-note">전체 기간 자료이며 아래 기간 선택의 영향을 받지 않습니다.</p>
+    <div class="stack">
+      <figure class="card fig" id="fig-annual">
+        <div class="fig-head">
+          <div><h3>원/달러 연평균 환율</h3><p class="desc">1981년 이후 연평균, 단위 원. 마지막 해는 연초 이후 평균입니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="chart" style="height:300px"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+      <figure class="card fig" id="fig-heat">
+        <div class="fig-head">
+          <div><h3>미 달러 대비 통화가치의 연간 변화</h3><p class="desc">연평균 환율 기준 전년 대비 변화율(%). 파란색은 해당 통화 강세, 빨간색은 약세입니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="scale-legend" data-scale="heat"></div>
+        <div class="chart" style="height:600px"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+    </div>
+
+    <div class="filters" role="toolbar" aria-label="분석 범위 선택">
+      <div class="filter">
+        <span class="filter-label" id="lbl-window">기간</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lbl-window" id="seg-window"></div>
+      </div>
+      <div class="filter">
+        <span class="filter-label" id="lbl-group">통화 묶음</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lbl-group" id="seg-group"></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">기간별 분석</h2>
+    <p class="section-note" id="window-note"></p>
+    <div class="stack">
+      <figure class="card fig" id="fig-krw">
+        <div class="fig-head">
+          <div><h3>원/달러 일별 환율</h3><p class="desc">단위 원. 선택 기간의 고점과 저점을 표시합니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="chart" style="height:340px"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+
+      <div class="grid-2">
+        <figure class="card fig" id="fig-perf">
+          <div class="fig-head">
+            <div><h3>미 달러 대비 통화가치 변화</h3><p class="desc">선택 기간 시작 주 대비 최근 주(%). 양수는 해당 통화 강세입니다.</p></div>
+            <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+          </div>
+          <div class="chart" style="height:600px"></div>
+          <div class="table-wrap" hidden></div>
+        </figure>
+        <figure class="card fig" id="fig-vol">
+          <div class="fig-head">
+            <div><h3>환율 변동성</h3><p class="desc">주간 로그수익률 표준편차의 연율화 값(%). 원화를 강조했습니다.</p></div>
+            <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+          </div>
+          <div class="chart" style="height:600px"></div>
+          <div class="table-wrap" hidden></div>
+        </figure>
+      </div>
+
+      <figure class="card fig" id="fig-index">
+        <div class="fig-head">
+          <div><h3>통화가치 지수 <span id="group-name"></span></h3><p class="desc">선택 기간 시작 주 = 100, 미 달러 대비. 100보다 높으면 기간 중 강세입니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="chart" style="height:400px"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+
+      <div class="grid-2">
+        <figure class="card fig" id="fig-rollvol">
+          <div class="fig-head">
+            <div><h3>원화 변동성 추이</h3><p class="desc">26주 이동 연율화 변동성(%). 22개 통화 중앙값과 비교합니다.</p></div>
+            <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+          </div>
+          <div class="chart" style="height:340px"></div>
+          <div class="table-wrap" hidden></div>
+        </figure>
+        <figure class="card fig" id="fig-dollar">
+          <div class="fig-head">
+            <div><h3>미 달러지수</h3><p class="desc">명목 지수, 2006년 1월 = 100. 지수 상승은 미 달러 강세를 뜻합니다.</p></div>
+            <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+          </div>
+          <div class="chart" style="height:340px"></div>
+          <div class="table-wrap" hidden></div>
+        </figure>
+      </div>
+
+      <figure class="card fig" id="fig-cross">
+        <div class="fig-head">
+          <div><h3>원화 교차환율</h3><p class="desc">미 달러 환율로 계산한 주간 교차환율, 단위 원. 차트마다 세로축 범위가 다릅니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="multiples"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+
+      <figure class="card fig" id="fig-corr">
+        <div class="fig-head">
+          <div><h3>통화 간 상관관계</h3><p class="desc">선택 기간의 주간 로그수익률(미 달러 대비) 상관계수. 함께 움직인 정도를 나타냅니다.</p></div>
+          <button class="btn tbl-btn" type="button" aria-expanded="false">표 보기</button>
+        </div>
+        <div class="scale-legend" data-scale="corr"></div>
+        <div class="chart" style="height:640px"></div>
+        <div class="table-wrap" hidden></div>
+      </figure>
+    </div>
+
+    <h2 class="section-title">방법과 자료</h2>
+    <div class="two-col" style="margin-top:12px">
+      <section class="card method" aria-labelledby="method-h">
+        <h2 id="method-h">분석 방법</h2>
+        <ul>
+          <li>원자료는 뉴욕 연방준비은행이 인증한 뉴욕 시간 정오 기준 매입률(H.10)이며 FRED에서 받습니다.</li>
+          <li>기간별 분석은 매주 금요일 기준 마지막 관측값으로 만든 주간 자료(2000년 이후)를 씁니다.</li>
+          <li>통화가치 변화는 미 달러 1단위당 외화 환율의 비율(기준값 ÷ 최근값 − 1)로, 양수이면 해당 통화가 미 달러 대비 강세입니다.</li>
+          <li>변동성은 주간 로그수익률 표준편차에 √52를 곱한 값입니다. 이동 변동성은 직전 26주 자료를 씁니다.</li>
+          <li>상관계수는 두 통화가 같은 방향으로 움직인 정도를 나타낼 뿐 인과관계를 뜻하지 않습니다.</li>
+          <li>원화 교차환율은 FRED의 미 달러 환율로 계산한 값이어서 한국은행 매매기준율과 차이가 있을 수 있습니다.</li>
+          <li>연간 변화는 연평균 환율 기준이므로 연초 대비 시점 변화와 부호가 다를 수 있습니다.</li>
+        </ul>
+      </section>
+      <section class="card downloads" aria-labelledby="dl-h">
+        <h2 id="dl-h">자료 내려받기 (CSV)</h2>
+        <ul id="downloads"></ul>
+      </section>
+    </div>
+  </template>
+
+  <footer>
+    <p>출처 Board of Governors of the Federal Reserve System (US), H.10 Foreign Exchange Rates, retrieved from FRED, Federal Reserve Bank of St. Louis. 차트 ECharts (Apache License 2.0).</p>
+    <p id="updated"></p>
+  </footer>
+</div>
+<script src="vendor/echarts.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

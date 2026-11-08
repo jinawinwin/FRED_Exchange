@@ -2,7 +2,23 @@
 
 미국 연방준비제도이사회(Federal Reserve Board)의 H.10 환율 자료를 FRED에서 받아 일별, 월평균, 연평균 CSV로 저장하는 저장소입니다. GitHub Actions가 새 자료 공표에 맞추어 자동으로 갱신합니다.
 
-*Daily H.10 foreign exchange rates from FRED, with monthly and annual averages, updated automatically by GitHub Actions.*
+*Daily H.10 foreign exchange rates from FRED, with monthly and annual averages and an analysis dashboard, updated automatically by GitHub Actions.*
+
+## 대시보드
+
+**https://jinawinwin.github.io/FRED_Exchange/**
+
+데이터가 갱신될 때마다 분석을 다시 계산하고 GitHub Pages에 자동으로 배포합니다.
+
+| 구분 | 내용 |
+|---|---|
+| 최근 환율 | 원/달러, 원/100엔, 원/위안, 원/유로, 미 달러지수의 최근 값, 1주·연초 대비·1년 변화율, 52주 범위 |
+| 장기 개관 | 원/달러 연평균(1981년 이후), 22개 통화의 연간 가치 변화 히트맵(2006년 이후) |
+| 기간별 분석 | 원/달러 일별 추이, 통화가치 변화 순위, 변동성 순위, 통화 묶음별 가치 지수, 원화 이동 변동성, 미 달러지수, 원화 교차환율, 통화 간 상관관계 |
+
+기간(1년~2000년 이후)과 통화 묶음(아시아, 주요 선진국, 신흥국)을 고르면 기간별 분석 차트가 함께 바뀝니다. 모든 차트에 표 보기가 있으며 다크 모드를 지원합니다.
+
+분석 자료는 `scripts/analyze_fx.py`가 `docs/data/dashboard.json`으로 만들고, 페이지는 `docs/`에 있습니다. 배포를 위해 저장소 **Settings > Pages > Source**가 **GitHub Actions**로 설정되어 있어야 합니다.
 
 ## 데이터 파일
 
@@ -78,6 +94,8 @@ API 키가 없어도 FRED의 공개 CSV 다운로드(`fredgraph.csv`)로 동작�
 pip install -r requirements.txt
 export FRED_API_KEY=발급받은키   # 선택
 python scripts/update_fx.py
+python scripts/analyze_fx.py
+python -m http.server 8000 --directory docs   # http://localhost:8000 에서 대시보드 확인
 ```
 
 ## 시리즈 추가와 제외
