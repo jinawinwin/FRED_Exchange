@@ -1,183 +1,183 @@
 {
   "source": "Board of Governors of the Federal Reserve System (US), H.10 Foreign Exchange Rates, via FRED",
   "retrieved_with": "fredgraph.csv",
-  "updated_utc": "2026-11-10T07:18:09Z",
-  "last_observation": "2026-11-06",
+  "updated_utc": "2026-11-17T07:55:55Z",
+  "last_observation": "2026-11-13",
   "series": {
     "DEXUSAL": {
       "code": "AUD",
       "unit": "U.S. dollars to one Australian dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 13998
+      "last": "2026-11-13",
+      "observations": 14002
     },
     "DEXBZUS": {
       "code": "BRL",
       "unit": "Brazilian reais to one U.S. dollar",
       "first": "1995-01-02",
-      "last": "2026-11-06",
-      "observations": 7988
+      "last": "2026-11-13",
+      "observations": 7992
     },
     "DEXCAUS": {
       "code": "CAD",
       "unit": "Canadian dollars to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14011
+      "last": "2026-11-13",
+      "observations": 14015
     },
     "DEXCHUS": {
       "code": "CNY",
       "unit": "Chinese yuan renminbi to one U.S. dollar",
       "first": "1981-01-02",
-      "last": "2026-11-06",
-      "observations": 11445
+      "last": "2026-11-13",
+      "observations": 11449
     },
     "DEXDNUS": {
       "code": "DKK",
       "unit": "Danish kroner to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14004
+      "last": "2026-11-13",
+      "observations": 14008
     },
     "DEXUSEU": {
       "code": "EUR",
       "unit": "U.S. dollars to one euro",
       "first": "1999-01-04",
-      "last": "2026-11-06",
-      "observations": 6984
+      "last": "2026-11-13",
+      "observations": 6988
     },
     "DEXHKUS": {
       "code": "HKD",
       "unit": "Hong Kong dollars to one U.S. dollar",
       "first": "1981-01-02",
-      "last": "2026-11-06",
-      "observations": 11505
+      "last": "2026-11-13",
+      "observations": 11509
     },
     "DEXINUS": {
       "code": "INR",
       "unit": "Indian rupees to one U.S. dollar",
       "first": "1973-01-02",
-      "last": "2026-11-06",
-      "observations": 13497
+      "last": "2026-11-13",
+      "observations": 13501
     },
     "DEXJPUS": {
       "code": "JPY",
       "unit": "Japanese yen to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 13999
+      "last": "2026-11-13",
+      "observations": 14003
     },
     "DEXKOUS": {
       "code": "KRW",
       "unit": "South Korean won to one U.S. dollar",
       "first": "1981-04-13",
-      "last": "2026-11-06",
-      "observations": 11391
+      "last": "2026-11-13",
+      "observations": 11395
     },
     "DEXMAUS": {
       "code": "MYR",
       "unit": "Malaysian ringgit to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 13983
+      "last": "2026-11-13",
+      "observations": 13987
     },
     "DEXMXUS": {
       "code": "MXN",
       "unit": "Mexican pesos to one U.S. dollar",
       "first": "1993-11-08",
-      "last": "2026-11-06",
-      "observations": 8273
+      "last": "2026-11-13",
+      "observations": 8277
     },
     "DEXUSNZ": {
       "code": "NZD",
       "unit": "U.S. dollars to one New Zealand dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 13989
+      "last": "2026-11-13",
+      "observations": 13993
     },
     "DEXNOUS": {
       "code": "NOK",
       "unit": "Norwegian kroner to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14004
+      "last": "2026-11-13",
+      "observations": 14008
     },
     "DEXSIUS": {
       "code": "SGD",
       "unit": "Singapore dollars to one U.S. dollar",
       "first": "1981-01-02",
-      "last": "2026-11-06",
-      "observations": 11504
+      "last": "2026-11-13",
+      "observations": 11508
     },
     "DEXSFUS": {
       "code": "ZAR",
       "unit": "South African rand to one U.S. dollar",
       "first": "1980-01-02",
-      "last": "2026-11-06",
-      "observations": 11748
+      "last": "2026-11-13",
+      "observations": 11752
     },
     "DEXSLUS": {
       "code": "LKR",
       "unit": "Sri Lankan rupees to one U.S. dollar",
       "first": "1973-01-02",
-      "last": "2026-11-06",
-      "observations": 13145
+      "last": "2026-11-13",
+      "observations": 13149
     },
     "DEXSDUS": {
       "code": "SEK",
       "unit": "Swedish kronor to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14004
+      "last": "2026-11-13",
+      "observations": 14008
     },
     "DEXSZUS": {
       "code": "CHF",
       "unit": "Swiss francs to one U.S. dollar",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14005
+      "last": "2026-11-13",
+      "observations": 14009
     },
     "DEXTAUS": {
       "code": "TWD",
       "unit": "New Taiwan dollars to one U.S. dollar",
       "first": "1983-10-03",
-      "last": "2026-11-06",
-      "observations": 10518
+      "last": "2026-11-13",
+      "observations": 10522
     },
     "DEXTHUS": {
       "code": "THB",
       "unit": "Thai baht to one U.S. dollar",
       "first": "1981-01-02",
-      "last": "2026-11-06",
-      "observations": 11424
+      "last": "2026-11-13",
+      "observations": 11428
     },
     "DEXUSUK": {
       "code": "GBP",
       "unit": "U.S. dollars to one pound sterling",
       "first": "1971-01-04",
-      "last": "2026-11-06",
-      "observations": 14005
+      "last": "2026-11-13",
+      "observations": 14009
     },
     "DTWEXBGS": {
       "code": "USD_BROAD",
       "unit": "Index Jan 2006=100",
       "first": "2006-01-02",
-      "last": "2026-11-06",
-      "observations": 5227
+      "last": "2026-11-13",
+      "observations": 5231
     },
     "DTWEXAFEGS": {
       "code": "USD_AFE",
       "unit": "Index Jan 2006=100",
       "first": "2006-01-02",
-      "last": "2026-11-06",
-      "observations": 5227
+      "last": "2026-11-13",
+      "observations": 5231
     },
     "DTWEXEMEGS": {
       "code": "USD_EME",
       "unit": "Index Jan 2006=100",
       "first": "2006-01-02",
-      "last": "2026-11-06",
-      "observations": 5227
+      "last": "2026-11-13",
+      "observations": 5231
     }
   }
 }
